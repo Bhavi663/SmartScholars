@@ -1,127 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('LB.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: mediumseagreen;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
 
-    .login-container {
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      text-align: center;
-      width: 100%;
-      max-width: 400px;
-    }
+        .login-container {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
 
-    .login-text {
-      font-size: 24px;
-      margin: 10px;
-      animation: float-in 2s ease-in-out 0.5s both;
-    }
+        .login-text {
+            font-size: 24px;
+            margin: 10px;
+            animation: float-in 2s ease-in-out 0.5s both;
+        }
 
-    .login-form {
-      text-align: left;
-    }
+        .login-form {
+            text-align: left;
+        }
 
-    .form-group {
-      margin-bottom: 15px;
-    }
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-    .form-group label {
-      display: block;
-      font-weight: bold;
-    }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
 
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-top: 5px;
-      box-sizing: border-box;
-    }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-    .login-button {
-      background: mediumseagreen;
-      color: #fff;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
+        .login-button {
+            background: mediumseagreen;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-    .login-button:hover {
-      background: darkgreen;
-    }
-
-    @keyframes float-in {
-      from {
-        transform: translateX(-50%);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-  </style>
-  <title>Login Form</title>
+        @keyframes float-in {
+            from {
+                transform: translateX(-50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="login-container">
-    <p class="login-text">Welcome to Our Website</p>
-    <form class="login-form" id="login-form"  action="connect.php" method="post">
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="class-course">Class/Course:</label>
-        <select id="class-course" name="class-course" required>
-          <option value="Class 12">Class 12</option>
-          <option value="B.Tech">B.Tech</option>
-          <option value="B.Sc">B.Sc</option>
-          <option value="BCA">BCA</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Create Password:</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-      <button type="submit" class="login-button">Login</button>
-    </form>
-  </div>
-
-  <script>
-    document.getElementById('login-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      window.location.href = 'thankyou.html';
-    });
-  </script>
+    <div class="login-container">
+        <p class="login-text">Welcome to Our Website</p>
+        <form class="login-form" id="login-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="class-course">Class/Course:</label>
+                <select id="class-course" name="class-course" required>
+                    <option value="Class 12">Class 12</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="B.Sc">B.Sc</option>
+                    <option value="BCA">BCA</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Create Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </div>
 </body>
 </html>
