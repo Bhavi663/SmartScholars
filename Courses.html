@@ -1,0 +1,105 @@
+<?php
+session_start();
+
+// Check if the user is not logged in, redirect to the login page
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header('Location: record.php'); // Redirect to your login page
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>SMART SCHOLARS |Courses</title>
+ <style>
+*{
+background-color:#d8bfd8;
+}
+ body {
+ font-family: cursive;
+ }
+ .study-material {
+ width: 100%;
+ max-width: 960px;
+ margin: 0 auto;
+ padding: 20px;
+ }
+ .study-material-header {
+ text-align: center;
+ }
+ @media (max-width: 768px) {
+ .study-material-header h1 {
+ font-size: 24px;
+ font-weight: bold;
+ }
+ .study-material-list {
+ list-style: none;
+ padding: 0;
+ }
+ .study-material-list li {
+ margin-bottom: 10px;
+ }
+ .study-material-list a {
+ text-decoration: none;
+ color: black;
+ }
+ .study-material-list a:hover {
+ color: blue;
+ }
+}
+ </style>
+</head>
+<body>
+ <div class="study-material">
+ <header class="study-material-header">
+ <h1 style="font-family: cursive;font-size: 36px ;"><u>Courses</u></h1>
+ </header>
+ <ul class="study-material-list">
+ <li>
+ <h3><u>Class 12</u></h3>
+ <a target="_blank" 
+href="chemistry.pdf" ><img
+src="chem.jpg" alt="" width="300px" height="300px"></a>
+<a target="_blank" 
+href="physics.pdf" ><img
+src="physics.jpg" alt="" width="300px" height="300px"></a>
+<a target="_blank" 
+href="maths.pdf" ><img src="maths.jpg" alt="" width="300px" height="300px"></a>
+ </li>
+ <li>
+ <h3><u>BTech</u></h3>
+ <a target="_blank" 
+href="digital electronics.pdf" 
+><img src="ece.jpg" alt="" width="300px" height="300px"></a>
+<a target="_blank" 
+href="bme.pdf" 
+><img src="bme.jpg" alt="" width="300px" height="300px"></a>
+<a target="_blank" 
+href="discrete.pdf" ><img src="Discrete.jpg" alt="" width="300px" height="300px"></a>
+ </li>
+ <li>
+ <h3><u>BSc</u></h3>
+ <a target="_blank" 
+href="OOP.pdf" ><img src="oop.jpg" alt="" width="300px" height="300px"></a>
+<a target="_blank" 
+href="COA.pdf" ><img 
+src="cao.jpg" alt="" width="300px" height="300px"></a>
+<a target="_blank" 
+href="OS.pdf" ><img src="os.jpg" alt="" width="300px" height="300px"></a>
+ </li>
+ <li>
+ <h3><u>BCA</u></h3>
+ <a target="_blank" 
+href="BUSINESS.pdf" ><img 
+src="business.jpg" alt="" width="300px" height="300px"></a>
+<a target="_blank" 
+href="ACCOUNTING.pdf" ><img src="acc.jpg" alt="" width="300px" height="300px"></a>
+<a target="_blank" 
+href="OB.pdf" ><img
+src="ob.jpg" alt="" width="300px" height="300px"></a>
+ </li>
+ </ul>
+ </div>
+</body>
+</html>

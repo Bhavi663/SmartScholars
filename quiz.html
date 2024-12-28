@@ -1,0 +1,214 @@
+<?php
+// Start the session
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Assuming you're receiving the username and score from the quiz form
+    $username = isset($_POST['username']) ? $_POST['username'] : '';
+    $score = isset($_POST['score']) ? $_POST['score'] : 0;
+
+    // Your database connection parameters
+    $servername = "localhost";
+    $username_db = "root";
+    $password_db = "";
+    $database = "smart_scholars";
+
+    // Create a connection to the database
+    $conn = new mysqli($servername, $username_db, $password_db, $database);
+
+    // Check the connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Escape the data to prevent SQL injection
+    $username = mysqli_real_escape_string($conn, $username);
+    $score = mysqli_real_escape_string($conn, $score);
+
+    // Create the INSERT SQL statement
+    $sql = "INSERT INTO quiz_score (username, score) VALUES ('$username', '$score')";
+
+    // Execute the SQL statement
+    if ($conn->query($sql) === TRUE) {
+        echo "Score saved successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    // Close the connection
+    $conn->close();
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SMART SCHOLARS| GK Quiz</title>
+
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #d8bfd8;
+        }
+
+        .quiz-container {
+            width: 80%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: aquamarine;
+            border: 1px solid #ffffff93;
+            border-radius: 6px;
+        }
+
+        .question {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option {
+            margin: 10px 0;
+        }
+
+        #submit {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #submit:hover {
+            background-color: #2980b9;
+        }
+
+        #result {
+            margin-top: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quiz-container">
+        <h1><u>General Knowledge Quiz</u></h1>
+        <form id="usernameForm">
+            <label for="username">Enter your username: </label>
+            <input type="text" id="username" name="username" required>
+            <button type="button" id="startQuiz">Start Quiz</button>
+        </form>
+        <div id="quiz" style="display: none;"></div>
+        <button id="submit" style="display: none;">Submit Answers</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const quizData = `
+            <quiz>
+                <question text="Q1.What is the capital of Goa ?">
+                <option text="(i)Chandigarh" correct="false" />
+                <option text="(ii)Hyderabad" correct="false" />
+                <option text="(ii)Panji" correct="true" />
+                <option text="(iv)Agartala" correct="false" />
+            </question>
+            <question text="Q2.Which planet is the largest Planet?">
+                <option text="(i)Mars" correct="false" />
+                <option text="(ii)Jupiter" correct="true" />
+                <option text="(iIi)Venus" correct="false" />
+                <option text="(iv)Earth" correct="false" />
+            </question>
+
+            <question text="Q3.Which contry is most populated?">
+                <option text="(i)China" correct="false" />
+                <option text="(ii)India" correct="true" />
+                <option text="(iii)Japan" correct="false" />
+                <option text="(iv)USA" correct="false" />
+            </question>
+          
+
+             <question text="Q4.Which of the following has highest  followers on Twitter in India?">
+                <option text="(i)Virat Kohli" correct="false" />
+                <option text="(ii)PM-Narendra Modi" correct="true" />
+                <option text="(iii)Salman Khan" correct="false" />
+                <option text="(iv)Akshay Kumar" correct="false" />
+            </question> 
+            </quiz>
+        `;
+
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(quizData, "text/xml");
+
+        const quizContainer = document.getElementById('quiz');
+        const submitButton = document.getElementById('submit');
+        const resultContainer = document.getElementById('result');
+        const usernameForm = document.getElementById('usernameForm');
+        const startQuizButton = document.getElementById('startQuiz');
+
+        startQuizButton.addEventListener('click', startQuiz);
+
+        function startQuiz() {
+            const username = document.getElementById('username').value;
+
+            if (username.trim() === '') {
+                alert('Please enter a username.');
+                return;
+            }
+
+            // Hide the username form and show the quiz
+            usernameForm.style.display = 'none';
+            quizContainer.style.display = 'block';
+            submitButton.style.display = 'block';
+
+            // Load the quiz
+            loadQuiz();
+        }
+
+        function loadQuiz() {
+            const questions = xmlDoc.getElementsByTagName('question');
+            for (let i = 0; i < questions.length; i++) {
+                const question = questions[i].getAttribute('text');
+                const options = questions[i].getElementsByTagName('option');
+                const questionElement = document.createElement('div');
+                questionElement.className = 'question';
+                questionElement.textContent = question;
+                quizContainer.appendChild(questionElement);
+
+                for (let j = 0; j < options.length; j++) {
+                    const option = options[j].getAttribute('text');
+                    const isCorrect = options[j].getAttribute('correct') === 'true';
+
+                    const optionElement = document.createElement('div');
+                    optionElement.className = 'option';
+                    optionElement.innerHTML = `<input type="radio" name="q${i}" value="${isCorrect}">${option}`;
+                    questionElement.appendChild(optionElement);
+                }
+            }
+        }
+
+        submitButton.addEventListener('click', calculateScore);
+
+        function calculateScore() {
+            const questions = xmlDoc.getElementsByTagName('question');
+            let score = 0;
+
+            for (let i = 0; i < questions.length; i++) {
+                const options = questions[i].getElementsByTagName('option');
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+
+                if (selectedOption && selectedOption.value === 'true') {
+                    score++;
+                }
+            }
+
+            resultContainer.textContent = `Your Score: ${score} out of ${questions.length}`;
+        }
+    </script>
+</body>
+</html>
