@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMART SCHOLARS | Home</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles for professional look */
+        /* Custom styles for professional UI */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
         h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
         .nav-link {
             transition: color 0.3s ease, transform 0.2s ease;
         }
         .nav-link:hover {
-            color: #facc15;
+            color: #f59e0b;
             transform: translateY(-2px);
         }
         .navbar {
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .read-more-btn {
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .read-more-btn:hover {
-            background-color: #1e40af;
+            background-color: #1e3a8a;
             transform: scale(1.05);
         }
         .study-material img {
@@ -41,7 +41,7 @@
             transition: color 0.3s ease;
         }
         .footer-link:hover {
-            color: #facc15;
+            color: #f59e0b;
         }
         .social-icon {
             transition: transform 0.3s ease;
@@ -49,20 +49,22 @@
         .social-icon:hover {
             transform: scale(1.2);
         }
-        .font-cursive {
-            font-family: 'Inter', sans-serif; /* Replacing cursive with a professional font */
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Header with Logo and Title -->
-    <header class="relative bg-blue-900 text-white text-center py-8">
-        <img class="absolute top-4 left-4 w-32 h-16 object-contain" src="logo.jpg" alt="Smart Scholars Logo">
-        <h1 class="text-4xl md:text-5xl font-bold">E-LEARNING PLATFORM</h1>
+<body class="bg-gray-100">
+    <!-- Header with Logo and New Heading -->
+    <header class="relative bg-indigo-900 text-white text-center py-10">
+        <img class="absolute top-4 left-4 w-[300px] h-[150px] object-contain" src="logo.jpg" alt="Smart Scholars Logo">
+        <h1 class="text-4xl md:text-5xl font-bold">Empower Your Future with Smart Scholars</h1>
     </header>
 
     <!-- Navigation -->
-    <nav class="navbar bg-blue-800 text-white py-6 sticky top-0 z-10">
+    <nav class="navbar bg-indigo-800 text-white py-6 sticky top-0 z-10">
         <div class="container mx-auto flex justify-center space-x-12">
             <a href="index.html" class="nav-link text-xl font-medium">Home</a>
             <a href="aboutus.html" target="_blank" class="nav-link text-xl font-medium">About Us</a>
@@ -74,10 +76,10 @@
     <!-- Main Content -->
     <main class="container mx-auto py-16 px-4">
         <!-- About Us Section -->
-        <section class="mb-20">
-            <h2 class="text-4xl font-bold text-center underline text-blue-900 mb-10">About Us</h2>
+        <section class="mb-20 card p-8">
+            <h2 class="text-4xl font-bold text-center underline text-indigo-900 mb-10">About Us</h2>
             <div class="flex flex-col md:flex-row items-center gap-10">
-                <img src="smart.img.jpg" alt="About Us Image" class="w-full md:w-1/2 h-[400px] object-cover rounded-lg shadow-lg">
+                <img src="smart.img.jpg" alt="About Us Image" class="w-[800px] h-[400px] object-contain rounded-lg">
                 <div class="md:w-1/2 space-y-6">
                     <p class="text-2xl font-medium text-gray-800">Welcome to our E-Learning Platform! Unlock the World of Knowledge</p>
                     <p class="text-lg text-gray-600">Join us on this journey to explore, learn, and grow. Discover a wide range of courses, connect with expert instructors, and enhance your skills from the comfort of your own space.</p>
@@ -93,76 +95,76 @@
                 We are excited to help you on your learning journey!...
             </p>
             <div class="text-center mt-8">
-                <a href="aboutus.html" target="_blank" class="read-more-btn inline-block bg-blue-600 text-white py-3 px-6 rounded-lg shadow-md">Read More</a>
+                <a href="aboutus.html" target="_blank" class="read-more-btn inline-block bg-indigo-600 text-white py-3 px-6 rounded-lg shadow-md">Read More</a>
             </div>
         </section>
 
         <!-- Study Material Section -->
-        <section class="mb-20">
-            <h2 class="text-4xl font-bold text-center underline text-blue-900 mb-10">Study Material</h2>
+        <section class="mb-20 card p-8">
+            <h2 class="text-4xl font-bold text-center underline text-indigo-900 mb-10">Study Material</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 study-material">
-                <a href="PYTHON NOTES.pdf" target="_blank"><img src="coverpage1.jpg" alt="Python Notes" class="w-48 h-48 object-cover mx-auto rounded-lg shadow-md"></a>
-                <a href="c notes2.pdf" target="_blank"><img src="page2.jpg" alt="C Notes" class="w-48 h-48 object-cover mx-auto rounded-lg shadow-md"></a>
-                <a href="cpp notes.pdf" target="_blank"><img src="cover3.jpg" alt="C++ Notes" class="w-48 h-48 object-cover mx-auto rounded-lg shadow-md"></a>
-                <a href="html notes.pdf" target="_blank"><img src="cover5.jpg" alt="HTML Notes" class="w-48 h-48 object-cover mx-auto rounded-lg shadow-md"></a>
-                <a href="CSS notes.pdf" target="_blank"><img src="page6.jpg" alt="CSS Notes" class="w-48 h-48 object-cover mx-auto rounded-lg shadow-md"></a>
-                <a href="JavaScript notes.pdf" target="_blank"><img src="page7.jpg" alt="JavaScript Notes" class="w-48 h-48 object-cover mx-auto rounded-lg shadow-md"></a>
+                <a href="PYTHON NOTES.pdf" target="_blank"><img src="coverpage1.jpg" alt="Python Notes" class="w-[200px] h-[200px] object-contain mx-auto rounded-lg shadow-md"></a>
+                <a href="c notes2.pdf" target="_blank"><img src="page2.jpg" alt="C Notes" class="w-[200px] h-[200px] object-contain mx-auto rounded-lg shadow-md"></a>
+                <a href="cpp notes.pdf" target="_blank"><img src="cover3.jpg" alt="C++ Notes" class="w-[200px] h-[200px] object-contain mx-auto rounded-lg shadow-md"></a>
+                <a href="html notes.pdf" target="_blank"><img src="cover5.jpg" alt="HTML Notes" class="w-[200px] h-[200px] object-contain mx-auto rounded-lg shadow-md"></a>
+                <a href="CSS notes.pdf" target="_blank"><img src="page6.jpg" alt="CSS Notes" class="w-[200px] h-[200px] object-contain mx-auto rounded-lg shadow-md"></a>
+                <a href="JavaScript notes.pdf" target="_blank"><img src="page7.jpg" alt="JavaScript Notes" class="w-[200px] h-[200px] object-contain mx-auto rounded-lg shadow-md"></a>
             </div>
         </section>
 
         <!-- Our Founders Section -->
-        <section class="mb-20">
-            <h2 class="text-4xl font-bold text-center underline text-blue-900 mb-10">Our Founders</h2>
+        <section class="mb-20 card p-8">
+            <h2 class="text-4xl font-bold text-center underline text-indigo-900 mb-10">Our Founders</h2>
             <div class="flex flex-col items-center">
-                <img src="avatar.jpg" alt="Founders" class="w-full md:w-1/2 h-64 object-cover rounded-lg shadow-lg mb-6">
+                <img src="avatar.jpg" alt="Founders" class="w-[600px] h-[300px] object-contain rounded-lg shadow-md mb-6">
                 <p class="text-xl text-gray-800 text-center">◆ Bhavi Chauhan<br>◆ Deepesh Kumar<br>◆ Rohit</p>
             </div>
         </section>
 
         <!-- Contact Us Section -->
-        <section>
-            <h2 class="text-4xl font-bold text-center underline text-blue-900 mb-10">Contact Us</h2>
+        <section class="card p-8">
+            <h2 class="text-4xl font-bold text-center underline text-indigo-900 mb-10">Contact Us</h2>
             <h3 class="text-2xl font-bold text-center text-gray-800 mb-6">Team Members</h3>
             <ul class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <li>
                     <ul class="text-center space-y-3">
                         <li><span class="font-bold text-lg text-gray-800">Bhavi Chauhan</span></li>
-                        <li>Follow him on: <a href="https://instagram.com/its_bhavi2617_?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"><img src="instagram.jpg" alt="Instagram" class="inline w-12 h-12 social-icon"></a></li>
+                        <li>Follow him on: <a href="https://instagram.com/its_bhavi2617_?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"><img src="instagram.jpg" alt="Instagram" class="inline w-[48px] h-[48px] object-contain social-icon"></a></li>
                     </ul>
                 </li>
                 <li>
                     <ul class="text-center space-y-3">
                         <li><span class="font-bold text-lg text-gray-800">Deepesh Kumar</span></li>
-                        <li>Follow him on: <a href="#" target="_blank"><img src="instagram.jpg" alt="Instagram" class="inline w-12 h-12 social-icon"></a></li>
+                        <li>Follow him on: <a href="#" target="_blank"><img src="instagram.jpg" alt="Instagram" class="inline w-[48px] h-[48px] object-contain social-icon"></a></li>
                     </ul>
                 </li>
                 <li>
                     <ul class="text-center space-y-3">
                         <li><span class="font-bold text-lg text-gray-800">Rohit</span></li>
-                        <li>Follow him on: <a href="https://instagram.com/rohit_nsut?igshid=cWd4cHNpMnRpaWR1" target="_blank"><img src="instagram.jpg" alt="Instagram" class="inline w-12 h-12 social-icon"></a></li>
+                        <li>Follow him on: <a href="https://instagram.com/rohit_nsut?igshid=cWd4cHNpMnRpaWR1" target="_blank"><img src="instagram.jpg" alt="Instagram" class="inline w-[48px] h-[48px] object-contain social-icon"></a></li>
                     </ul>
                 </li>
             </ul>
             <div class="mt-10 text-center">
                 <h4 class="text-2xl font-bold text-gray-800 mb-6">Follow Us For More Info:</h4>
                 <div class="flex justify-center space-x-6">
-                    <a href="https://www.facebook.com" target="_blank"><img src="facebook.jpg" alt="Facebook" class="w-16 h-16 social-icon"></a>
-                    <a href="https://www.linkedin.com" target="_blank"><img src="linkedin.jpg" alt="LinkedIn" class="w-16 h-16 social-icon"></a>
-                    <a href="https://instagram.com/its_bhavi2617_?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"><img src="instagram.jpg" alt="Instagram" class="w-16 h-16 social-icon"></a>
-                    <a href="https://www.youtube.com" target="_blank"><img src="youtube.jpg" alt="YouTube" class="w-16 h-16 social-icon"></a>
+                    <a href="https://www.facebook.com" target="_blank"><img src="facebook.jpg" alt="Facebook" class="w-[60px] h-[60px] object-contain social-icon"></a>
+                    <a href="https://www.linkedin.com" target="_blank"><img src="linkedin.jpg" alt="LinkedIn" class="w-[60px] h-[60px] object-contain social-icon"></a>
+                    <a href="https://instagram.com/its_bhavi2617_?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"><img src="instagram.jpg" alt="Instagram" class="w-[60px] h-[60px] object-contain social-icon"></a>
+                    <a href="https://www.youtube.com" target="_blank"><img src="youtube.jpg" alt="YouTube" class="w-[60px] h-[60px] object-contain social-icon"></a>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-blue-800 text-white py-10">
+    <footer class="bg-indigo-800 text-white py-10">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div><a href="FAQs.html" target="_blank" class="footer-link text-lg">FAQs</a></div>
             <div><a href="Terms_of_use.html" target="_blank" class="footer-link text-lg">Terms of Use</a></div>
             <div><a href="Privacy_Policy.html" target="_blank" class="footer-link text-lg">Privacy Policy</a></div>
         </div>
-        <hr class="my-8 border-gray-600">
+        <hr class="my-8 border-gray-500">
         <p class="text-center text-gray-300">© 2023 Smart Scholars</p>
     </footer>
 
